@@ -11,7 +11,8 @@ export default class AuthLayout extends React.Component {
     super(props)
     this.state = {
       token: LocalStorage.get('foursquare-token'),
-      username: LocalStorage.get('foursquare-user')
+      username: LocalStorage.get('foursquare-user'),
+      avatar: LocalStorage.get('foursquare-avatar')
     }
   }
 
@@ -23,11 +24,13 @@ export default class AuthLayout extends React.Component {
 
   fetchUser() {
     const fetcher = new Fetcher('')
-    fetcher.get(`/me?token=${this.state.token}`).then(json => {
-      console.log(json)
-      LocalStorage.set('foursquare-user-id', json.id)
-      const username = `${json.firstName} ${json.lastName}`
+    fetcher.get(`/me?token=${this.state.token}`).then(user => {
+      console.log(user)
+      const avatarUrl = `${user.photo.prefix}100x100${user.photo.suffix}`
+      LocalStorage.set('foursquare-user-id', user.id)
+      const username = `${user.firstName} ${user.lastName}`
       LocalStorage.set('foursquare-user', username)
+      LocalStorage.set('foursquare-avatar', avatarUrl)
       this.setState({ username })
     })
   }
@@ -37,12 +40,18 @@ export default class AuthLayout extends React.Component {
     LocalStorage.delete('foursquare-user-id')
     LocalStorage.delete('foursquare-token')
     LocalStorage.delete('foursquare-user')
+    LocalStorage.delete('foursquare-avatar')
     this.props.router.push('/')
   }
 
   logoutLink() {
-    if (!this.state.username) {
+    const { username, avatar } = this.state
+    if (!username) {
       return
+    }
+    let image = ''
+    if (avatar) {
+      image = <img src={avatar} className="icon foursquare-avatar" />
     }
     return (
       <a
@@ -50,6 +59,7 @@ export default class AuthLayout extends React.Component {
         href="#"
         onClick={e => this.logout(e)}
       >
+        {image}
         <span>Log out </span>
         <span className="username">{this.state.username}</span>
       </a>

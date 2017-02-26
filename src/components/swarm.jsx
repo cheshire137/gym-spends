@@ -22,8 +22,8 @@ class Swarm extends React.Component {
       catch(err => this.onCheckinsFetchError(err))
   }
 
-  onCheckinsFetched(json) {
-    console.log(json)
+  onCheckinsFetched(checkins) {
+    console.log(checkins)
   }
 
   onCheckinsFetchError(error) {

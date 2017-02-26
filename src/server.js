@@ -16,12 +16,20 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.get('/me', (req, res) => {
   const api = new FoursquareApi(req.query.token, fetch)
-  api.me().then(json => res.json(json))
+  api.me().then(json => res.json(json.response.user)).
+    catch(err => {
+      console.log('oh no', err)
+      res.json({ error: err })
+    })
 })
 
 app.get('/checkins', (req, res) => {
   const api = new FoursquareApi(req.query.token, fetch)
-  api.checkins().then(json => res.json(json))
+  api.checkins().then(json => res.json(json.response.checkins)).
+    catch(err => {
+      console.log('oh no checkins', err)
+      res.json({ error: err })
+    })
 })
 
 app.get('*', (req, res) => {

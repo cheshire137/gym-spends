@@ -18,3 +18,18 @@ body {
   background-color: #526ee3;
   color: #fff;
 }
+
+.foursquare-avatar {
+  margin-right: 5px;
+  border-radius: 2px;
+  width: 25px;
+  height: 25px;
+}
+
+.username {
+  font-weight: 700;
+}
+
+.username:before {
+  content: "\a0";
+}
