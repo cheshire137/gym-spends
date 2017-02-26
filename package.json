@@ -1,7 +1,7 @@
 {
-  "name": "spotty-features",
+  "name": "gym-spends",
   "version": "0.0.1",
-  "description": "Playing around with Spotify's audio features API endpoints.",
+  "description": "Track how much each trip to the gym costs you.",
   "main": "src/server.js",
   "author": "Sarah Vessels <cheshire137@gmail.com>",
   "license": "MIT",

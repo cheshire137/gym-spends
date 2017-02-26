@@ -1,4 +1,4 @@
-const localStorageKey = 'spotty-features'
+const localStorageKey = 'gym-spends'
 
 export default class LocalStorage {
   static getJSON() {

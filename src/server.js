@@ -17,6 +17,6 @@ app.get('*', (req, res) => {
 
 if (!module.parent) {
   app.listen(app.get('port'), () => {
-    console.log(`spotty-features listening on port ${app.get('port')}`)
+    console.log(`gym-spends listening on port ${app.get('port')}`)
   })
 }
