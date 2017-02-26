@@ -49,8 +49,31 @@ class Swarm extends React.Component {
     this.props.router.push('/')
   }
 
-  render() {
+  checkinsList() {
     const { checkins } = this.state
+    if (checkins.length < 1) {
+      return <p>I have not been to the gym any this month. :(</p>
+    }
+
+    let times = 'time'
+    if (checkins.length > 1) {
+      times += 's'
+    }
+    return (
+      <div className="content">
+        <p>
+          I have been to the gym
+          <strong
+            className="space-after space-before"
+          >{checkins.length}</strong>
+          {times} this month.
+        </p>
+        <CheckinsList checkins={checkins} />
+      </div>
+    )
+  }
+
+  render() {
     return (
       <section className="section">
         <div className="container">
@@ -75,9 +98,7 @@ class Swarm extends React.Component {
               className="label inline-block is-large space-before"
             >per month.</span>
           </form>
-          {checkins.length > 0 ? (
-            <CheckinsList checkins={checkins} />
-          ) : ''}
+          {this.checkinsList()}
         </div>
       </section>
     )
