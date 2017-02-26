@@ -1,7 +1,7 @@
 import React from 'react'
 
 import LocalStorage from '../models/local-storage'
-import FoursquareApi from '../models/foursquare-api'
+import Fetcher from '../models/fetcher'
 
 class Swarm extends React.Component {
   constructor(props) {
@@ -16,8 +16,8 @@ class Swarm extends React.Component {
   }
 
   fetchCheckins() {
-    const api = new FoursquareApi(this.state.token)
-    api.checkins().
+    const fetcher = new Fetcher('')
+    fetcher.get(`/checkins?token=${this.state.token}`).
       then(json => this.onCheckinsFetched(json)).
       catch(err => this.onCheckinsFetchError(err))
   }
