@@ -1,8 +1,8 @@
-import path from 'path'
-import express from 'express'
-import fetch from 'node-fetch'
+const path = require('path')
+const express = require('express')
+const fetch = require('node-fetch')
 
-import FoursquareApi from './models/foursquare-api'
+const FoursquareApi = require('./models/foursquare-api')
 
 const app = module.exports = express()
 
@@ -16,9 +16,12 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.get('/me', (req, res) => {
   const api = new FoursquareApi(req.query.token, fetch)
-  api.me().then(json => {
-    res.json(json)
-  })
+  api.me().then(json => res.json(json))
+})
+
+app.get('/checkins', (req, res) => {
+  const api = new FoursquareApi(req.query.token, fetch)
+  api.checkins().then(json => res.json(json))
 })
 
 app.get('*', (req, res) => {

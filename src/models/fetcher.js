@@ -1,4 +1,4 @@
-export default class Fetcher {
+class Fetcher {
   constructor(basePath, fetch) {
     this.basePath = basePath
     this.fetch = fetch
@@ -27,7 +27,17 @@ export default class Fetcher {
     if (body) {
       data.body = JSON.stringify(body)
     }
-    return this.fetch(url, data).then(this.checkStatus).
+    let promise = null
+    if (this.fetch) {
+      promise = this.fetch(url, data)
+    } else if (fetch) {
+      promise = fetch(url, data)
+    } else {
+      throw new Error('no fetch available')
+    }
+    return promise.then(this.checkStatus).
       then(this.parseJson)
   }
 }
+
+module.exports = Fetcher

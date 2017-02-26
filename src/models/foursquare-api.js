@@ -1,7 +1,7 @@
-import Fetcher from './fetcher'
-import Config from '../public/config'
+const Fetcher = require('./fetcher')
+const Config = require('../public/config')
 
-export default class FoursquareApi extends Fetcher {
+class FoursquareApi extends Fetcher {
   constructor(token, fetch) {
     super(Config.foursquare.apiUrl, fetch)
     this.token = token
@@ -28,3 +28,5 @@ export default class FoursquareApi extends Fetcher {
     return `${path}${connector}oauth_token=${this.token}&v=20170226`
   }
 }
+
+module.exports = FoursquareApi
