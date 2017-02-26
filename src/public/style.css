@@ -30,6 +30,33 @@ body {
   font-weight: 700;
 }
 
-.username:before {
+.username:before,
+.space-before:before,
+.space-after:after {
   content: "\a0";
+}
+
+span.control,
+.inline-block {
+  display: inline-block;
+}
+
+.is-large.label {
+  font-weight: normal;
+  font-size: 1.3rem;
+  line-height: 2.1;
+  vertical-align: top;
+}
+
+.control.has-icon .icon.is-large {
+  height: 2rem;
+  font-size: 32px;
+}
+
+.control.has-icon:not(.has-icon-right) .icon.is-large {
+  left: 1.3rem;
+}
+
+.control.has-icon:not(.has-icon-right) .input.is-large {
+  padding-left: 1.8em;
 }

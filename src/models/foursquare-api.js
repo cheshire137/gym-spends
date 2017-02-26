@@ -1,5 +1,5 @@
-const Fetcher = require('./fetcher')
 const Config = require('../public/config')
+const Fetcher = require('./fetcher')
 
 class FoursquareApi extends Fetcher {
   constructor(token, fetch) {

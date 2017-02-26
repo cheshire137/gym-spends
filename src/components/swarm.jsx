@@ -23,7 +23,13 @@ class Swarm extends React.Component {
   }
 
   onCheckinsFetched(checkins) {
-    console.log(checkins)
+    const gyms = checkins.items.filter(this.isCheckinAtGym)
+    console.log(gyms)
+  }
+
+  isCheckinAtGym(checkin) {
+    const categories = checkin.venue.categories
+    return categories.filter(cat => cat.name === 'Gym').length > 0
   }
 
   onCheckinsFetchError(error) {
@@ -41,11 +47,30 @@ class Swarm extends React.Component {
   }
 
   render() {
-    const { activeView } = this.state
     return (
       <section className="section">
         <div className="container">
-          It's gym time
+          <form>
+            <label
+              className="label inline-block is-large space-after"
+              htmlFor="gym-cost"
+            >My gym costs</label>
+            <span className="control has-icon has-icon-left">
+              <span className="icon is-large">
+                <i className="fa fa-usd"></i>
+              </span>
+              <input
+                type="text"
+                id="gym-cost"
+                size="10"
+                className="input is-large"
+                placeholder="75"
+              />
+            </span>
+            <span
+              className="label inline-block is-large space-before"
+            >per month.</span>
+          </form>
         </div>
       </section>
     )
