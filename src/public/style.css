@@ -1,0 +1,20 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+#root {
+  flex: 1 0 auto;
+}
+
+.button.foursquare-button {
+  background-color: #3455de;
+  color: #fff;
+}
+
+.button.foursquare-button:hover,
+.button.foursquare-button:focus {
+  background-color: #526ee3;
+  color: #fff;
+}
