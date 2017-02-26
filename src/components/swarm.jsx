@@ -1,5 +1,6 @@
 import React from 'react'
 
+import CheckinsList from './checkins-list.jsx'
 import LocalStorage from '../models/local-storage'
 import Fetcher from '../models/fetcher'
 
@@ -7,7 +8,8 @@ class Swarm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      token: LocalStorage.get('foursquare-token')
+      token: LocalStorage.get('foursquare-token'),
+      checkins: []
     }
   }
 
@@ -25,6 +27,7 @@ class Swarm extends React.Component {
   onCheckinsFetched(checkins) {
     const gyms = checkins.items.filter(this.isCheckinAtGym)
     console.log(gyms)
+    this.setState({ checkins: gyms })
   }
 
   isCheckinAtGym(checkin) {
@@ -47,6 +50,7 @@ class Swarm extends React.Component {
   }
 
   render() {
+    const { checkins } = this.state
     return (
       <section className="section">
         <div className="container">
@@ -62,7 +66,7 @@ class Swarm extends React.Component {
               <input
                 type="text"
                 id="gym-cost"
-                size="10"
+                size="5"
                 className="input is-large"
                 placeholder="75"
               />
@@ -71,6 +75,9 @@ class Swarm extends React.Component {
               className="label inline-block is-large space-before"
             >per month.</span>
           </form>
+          {checkins.length > 0 ? (
+            <CheckinsList checkins={checkins} />
+          ) : ''}
         </div>
       </section>
     )

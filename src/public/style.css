@@ -44,7 +44,7 @@ span.control,
 .is-large.label {
   font-weight: normal;
   font-size: 1.3rem;
-  line-height: 2.1;
+  line-height: 48px;
   vertical-align: top;
 }
 
@@ -59,4 +59,18 @@ span.control,
 
 .control.has-icon:not(.has-icon-right) .input.is-large {
   padding-left: 1.8em;
+}
+
+.footer .separator {
+  display: inline-block;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.checkin-name {
+  font-weight: 700;
+}
+
+.checkin-time {
+  color: #999;
 }
