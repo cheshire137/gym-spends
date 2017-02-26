@@ -1,0 +1,244 @@
+{
+  "meta": {
+    "code": 200,
+    "requestId": "8675309a"
+  },
+  "notifications": [
+    {
+      "type": "notificationTray",
+      "item": {
+        "unreadCount": 0
+      }
+    }
+  ],
+  "response": {
+    "user": {
+      "id": "1234567890",
+      "firstName": "Jimbob",
+      "lastName": "Scallywag",
+      "gender": "female",
+      "relationship": "self",
+      "canonicalUrl": "https://foursquare.com/user/1234567890",
+      "photo": {
+        "prefix": "https://igx.4sqi.net/img/user/",
+        "suffix": "/1234567890-JIF#O@IJEIO@JI@.jpg"
+      },
+      "friends": {
+        "count": 12,
+        "groups": [
+          {
+            "type": "friends",
+            "name": "Mutual friends",
+            "count": 0,
+            "items": []
+          },
+          {
+            "type": "others",
+            "name": "Other friends",
+            "count": 12,
+            "items": [
+              {
+                "id": "98765432",
+                "firstName": "Jenny",
+                "lastName": "Bo-benny",
+                "gender": "female",
+                "relationship": "friend",
+                "photo": {
+                  "prefix": "https://igx.4sqi.net/img/user/",
+                  "suffix": "/98765432-JAFIDOSJFIDOS.jpg"
+                },
+                "tips": {
+                  "count": 2
+                },
+                "lists": {
+                  "groups": [
+                    {
+                      "type": "created",
+                      "count": 2,
+                      "items": []
+                    }
+                  ]
+                },
+                "homeCity": "Reno, NV",
+                "bio": "I am so cool",
+                "contact": {
+                  "email": "so-cool@example.com",
+                  "facebook": "3294738294732894732"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "birthday": 123456789,
+      "tips": {
+        "count": 0
+      },
+      "homeCity": "Anywhere, CA",
+      "bio": "",
+      "contact": {
+        "verifiedPhone": "false",
+        "email": "user@example.com",
+        "facebook": "12345678912345678"
+      },
+      "photos": {
+        "count": 0,
+        "items": []
+      },
+      "checkinPings": "off",
+      "pings": false,
+      "type": "user",
+      "mayorships": {
+        "count": 0,
+        "items": []
+      },
+      "checkins": {
+        "count": 219,
+        "items": [
+          {
+            "id": "123abc",
+            "createdAt": 1487982447,
+            "type": "checkin",
+            "timeZoneOffset": -390,
+            "venue": {
+              "id": "987zyx",
+              "name": "Fancy Eatery",
+              "contact": {},
+              "location": {
+                "address": "1234 Street Rd",
+                "lat": 34.103003,
+                "lng": -118.410468,
+                "labeledLatLngs": [
+                  {
+                    "label": "display",
+                    "lat": 34.103003,
+                    "lng": -118.410468
+                  }
+                ],
+                "postalCode": "90210",
+                "cc": "US",
+                "city": "Beverly Hills",
+                "state": "CA",
+                "country": "United States",
+                "formattedAddress": [
+                  "1234 Street Rd",
+                  "Beverly Hills, CA 90210"
+                ]
+              },
+              "categories": [
+                {
+                  "id": "abcdef12",
+                  "name": "American Restaurant",
+                  "pluralName": "American Restaurants",
+                  "shortName": "American",
+                  "icon": {
+                    "prefix": "https://ss3.4sqi.net/img/categories_v2/food/american_",
+                    "suffix": ".png"
+                  },
+                  "primary": true
+                }
+              ],
+              "verified": false,
+              "stats": {
+                "checkinsCount": 200,
+                "usersCount": 300,
+                "tipCount": 40
+              },
+              "url": "http://www.fancy-eatery.com",
+              "hasMenu": true,
+              "like": false,
+              "menu": {
+                "type": "Menu",
+                "label": "Menu",
+                "anchor": "View Menu",
+                "url": "https://foursquare.com/v/fancy-eatery/123abcdef09/menu",
+                "mobileUrl": "https://foursquare.com/v/123abcdef09/device_menu"
+              },
+              "allowMenuUrlEdit": true,
+              "beenHere": {
+                "lastCheckinExpiredAt": 0
+              }
+            },
+            "likes": {
+              "count": 0,
+              "groups": []
+            },
+            "like": false,
+            "isMayor": false,
+            "photos": {
+              "count": 0,
+              "items": []
+            },
+            "posts": {
+              "count": 0,
+              "textCount": 0
+            },
+            "comments": {
+              "count": 0
+            },
+            "source": {
+              "name": "Swarm for iOS",
+              "url": "https://www.swarmapp.com"
+            }
+          }
+        ]
+      },
+      "requests": {
+        "count": 0
+      },
+      "lists": {
+        "count": 2,
+        "groups": [
+          {
+            "type": "created",
+            "count": 0,
+            "items": []
+          },
+          {
+            "type": "followed",
+            "count": 0,
+            "items": []
+          },
+          {
+            "type": "yours",
+            "count": 2,
+            "items": [
+              {
+                "id": "1234567890/todos",
+                "name": "My Saved Places",
+                "description": "",
+                "type": "todos",
+                "editable": true,
+                "public": true,
+                "collaborative": false,
+                "url": "/user/1234567890/list/todos",
+                "canonicalUrl": "https://foursquare.com/user/1234567890/list/todos",
+                "listItems": {
+                  "count": 0
+                }
+              },
+              {
+                "id": "1234567890/venuelikes",
+                "name": "My Liked Places",
+                "description": "",
+                "type": "likes",
+                "editable": true,
+                "public": true,
+                "collaborative": false,
+                "url": "/user/1234567890/list/venuelikes",
+                "canonicalUrl": "https://foursquare.com/user/1234567890/list/venuelikes",
+                "listItems": {
+                  "count": 0
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "blockedStatus": "none",
+      "createdAt": 1342352412,
+      "lenses": [],
+      "referralId": "u-1234567890"
+    }
+  }
+}
