@@ -4,10 +4,10 @@ import Config from '../public/config'
 
 export default class Auth extends React.Component {
   render() {
-    const host = 'https://foursquare.com/oauth2/authenticate'
+    const host = 'https://foursquare.com'
     const redirectUri = `${window.location.protocol}//${window.location.host}/auth`
     console.log(redirectUri)
-    const authUrl = `${host}/authorize?response_type=token` +
+    const authUrl = `${host}/oauth2/authenticate?response_type=token` +
       `&redirect_uri=${encodeURIComponent(redirectUri)}` +
       `&client_id=${Config.foursquare.clientId}`
     return (
