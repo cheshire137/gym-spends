@@ -1,4 +1,7 @@
+/* eslint-disable no-multiple-empty-lines, import/no-unassigned-import */
+
 import React from 'react'
+import 'whatwg-fetch'
 
 import LocalStorage from '../models/local-storage'
 import Fetcher from '../models/fetcher'
@@ -19,7 +22,7 @@ export default class AuthLayout extends React.Component {
   }
 
   fetchUser() {
-    const fetcher = new Fetcher()
+    const fetcher = new Fetcher('', fetch)
     fetcher.get(`/me?token=${this.state.token}`).then(json => {
       console.log(json)
       LocalStorage.set('foursquare-user-id', json.id)

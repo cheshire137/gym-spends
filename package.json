@@ -11,6 +11,7 @@
     "babelify": "^7.3.0",
     "browserify": "^14.0.0",
     "express": "^4.14.1",
+    "node-fetch": "^1.6.3",
     "promise-polyfill": "^6.0.2",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
