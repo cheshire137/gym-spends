@@ -1,8 +1,9 @@
 import React from 'react'
 
-import CheckinsList from './checkins-list.jsx'
 import LocalStorage from '../models/local-storage'
 import Fetcher from '../models/fetcher'
+
+import CheckinsList from './checkins-list.jsx'
 
 class Swarm extends React.Component {
   constructor(props) {
@@ -169,7 +170,7 @@ class Swarm extends React.Component {
             >My gym costs</label>
             <span className="control has-icon has-icon-left">
               <span className="icon is-large">
-                <i className="fa fa-usd"></i>
+                <i className="fa fa-usd" />
               </span>
               <input
                 type="text"
