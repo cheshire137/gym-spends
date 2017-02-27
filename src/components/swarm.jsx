@@ -89,7 +89,12 @@ class Swarm extends React.Component {
     const { checkins, extraVisitCount } = this.state
     const numVisits = checkins.length + extraVisitCount
     if (numVisits < 1) {
-      return <p>I have not been to the gym any this month. :(</p>
+      return (
+        <p className="has-text-centered">
+          I have not been to the gym any this month. :(
+          <span className="quote">&rdquo;</span>
+        </p>
+      )
     }
 
     let times = 'time'
@@ -98,7 +103,8 @@ class Swarm extends React.Component {
     }
     return (
       <div>
-        <p className="input-line-height">
+        <p className="input-line-height has-text-centered">
+          <span className="quote">&ldquo;</span>
           I have been to the gym
           <strong
             className="space-after space-before"
@@ -122,14 +128,11 @@ class Swarm extends React.Component {
           <span
             className="space-before"
           >{times} this month.</span>
+          <span className="quote">&rdquo;</span>
         </p>
         <CheckinsList checkins={checkins} />
       </div>
     )
-  }
-
-  onSubmit(event) {
-    event.preventDefault()
   }
 
   onCostChange(event) {
@@ -150,7 +153,8 @@ class Swarm extends React.Component {
     }
     const perVisit = (cost / numVisits).toFixed(2)
     return (
-      <p>
+      <p className="has-text-centered">
+        <span className="quote">&ldquo;</span>
         If I don&lsquo;t go to the gym any more this month,
         each visit has cost me
         <strong className="space-before">${perVisit}</strong>.
@@ -165,11 +169,16 @@ class Swarm extends React.Component {
         <div className="container">
           <div className="columns">
             <div className="column is-half is-offset-3">
-              <form onSubmit={e => this.onSubmit(e)}>
+              <p
+                className="has-text-centered"
+              >
                 <label
                   className="label inline-block is-large space-after"
                   htmlFor="gym-cost"
-                >My gym costs</label>
+                >
+                  <span className="quote">&ldquo;</span>
+                  My gym costs
+                </label>
                 <span className="control has-icon has-icon-left">
                   <span className="icon is-large">
                     <i className="fa fa-usd" />
@@ -187,7 +196,7 @@ class Swarm extends React.Component {
                 <span
                   className="label inline-block is-large space-before"
                 >per month.</span>
-              </form>
+              </p>
               {this.costPerVisit()}
               {this.checkinsList()}
             </div>

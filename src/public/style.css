@@ -146,6 +146,12 @@ span.control,
   margin-right: 1em;
 }
 
+.checkins-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .checkins-list .separator,
 .checkin-time {
   color: #8A8BD7;
@@ -164,4 +170,8 @@ span.control,
 
 .input-line-height {
   line-height: 32px;
+}
+
+.quote {
+  font-weight: 700;
 }
