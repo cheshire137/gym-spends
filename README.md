@@ -6,6 +6,8 @@ As motivation for going to the gym more often, this app will tell
 you how much each visit is costing you based on your monthly gym
 fee and how much you've checked in there this month.
 
+![Screenshot](https://raw.githubusercontent.com/cheshire137/gym-spends/master/screenshot.png)
+
 ## How to Develop
 
 You will need [Homebrew](http://brew.sh/) installed in macOS.
