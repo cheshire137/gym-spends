@@ -48,3 +48,14 @@ See also:
 - [Jest matchers](https://facebook.github.io/jest/docs/expect.html#content)
 - [ESLint rules](http://eslint.org/docs/rules/)
 - [XO style checker](https://github.com/sindresorhus/xo)
+
+## How to Deploy to Heroku
+
+In your Foursquare application, you'll need to add your Heroku app's URL, with `/auth`,
+as a valid redirect URI. You probably want to add two redirect URIs: one with
+https and the other with http.
+
+```bash
+git push heroku master
+heroku open
+```
