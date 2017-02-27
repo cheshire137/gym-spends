@@ -41,17 +41,18 @@ export default class AuthLayout extends React.Component {
 
   logout(event) {
     event.preventDefault()
+
     LocalStorage.delete('foursquare-user-id')
     LocalStorage.delete('foursquare-token')
     LocalStorage.delete('foursquare-user')
     LocalStorage.delete('foursquare-avatar')
     LocalStorage.delete('foursquare-large-avatar')
+
     this.props.router.push('/')
   }
 
   logoutLink() {
-    const { username } = this.state
-    if (!username) {
+    if (!this.state.username) {
       return
     }
     return (
@@ -59,10 +60,7 @@ export default class AuthLayout extends React.Component {
         className="nav-item logout-link"
         href="#"
         onClick={e => this.logout(e)}
-      >
-        <span>Log out </span>
-        <span className="username">{username}</span>
-      </a>
+      >Log out of Swarm</a>
     )
   }
 

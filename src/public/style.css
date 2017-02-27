@@ -1,61 +1,61 @@
 body,
 .section,
-.nav,
-.footer,
 .hero {
-  color: #fff;
-  background-color: #393A8E;
+  color: #3E3A3B;
+  background-color: #E5E4F2;
 }
 
-.hero.is-primary {
-  background-color: #3E7593;
+.hero.is-primary,
+.nav {
+  color: #3E3A3B;
+  background-color: #FFD524;
 }
 
 .nav {
-  border-bottom: 1px solid #1A1B67;
+  border-bottom: 1px solid #DBB40D;
 }
 
 .input {
-  background-color: #7374C1;
   border-color: #31327F;
-  color: #fff;
+  -webkit-transition: border-color 0.2s ease-in-out;
+  -moz-transition: border-color 0.2s ease-in-out;
+  -ms-transition: border-color 0.2s ease-in-out;
+  -o-transition: border-color 0.2s ease-in-out;
+  transition: border-color 0.2s ease-in-out;
 }
 
 .input:hover {
-  border-color: #1A1B67;
+  border-color: #B47C9F;
 }
 
 .input:focus {
-  border-color: #1A1B67;
+  border-color: #B47C9F;
 }
 
 .control.has-icon .icon {
   color: #B7B7E3;
 }
 
-.input::-webkit-input-placeholder,
-.input::-moz-placeholder,
-.input:-ms-input-placeholder,
-.input:-moz-placeholder {
-  color: #B7B7E3;
-}
-
 .footer {
-  color: #bdd3ed;
+  color: #3E3A3B;
+  background-color: #9CDAE5;
   font-size: 1rem;
-  border-top: 1px solid #1A1B67;
+  border-top: 1px solid #72B9C5;
 }
 
 .nav-item a,
-a.nav-item {
-  color: #fff;
+a.nav-item,
+a.nav-item:link,
+a.nav-item:visited,
+a.nav-item:active {
+  color: #3E3A3B;
 }
 
 a,
 a:link,
 a:visited,
 a:active {
-  color: #BDEDC6;
+  color: #B47C9F;
   -webkit-transition: color 0.2s ease-in-out;
   -moz-transition: color 0.2s ease-in-out;
   -ms-transition: color 0.2s ease-in-out;
@@ -69,13 +69,13 @@ a:focus,
 .nav-item a:hover,
 a.nav-item.is-active,
 a.nav-item:hover {
-  color: #FCDEDD;
+  color: #B47C9F;
 }
 
 .label,
 .subtitle,
 .title {
-  color: #FF694F;
+  color: #3E3A3B;
 }
 
 body {
@@ -87,7 +87,7 @@ body {
 
 .content,
 .content strong {
-  color: #bdd3ed;
+  color: #3E3A3B;
 }
 
 #root {
@@ -157,16 +157,24 @@ span.control,
   margin-right: 1em;
 }
 
+.checkins-list,
+.checkins-list-header {
+  font-size: 1rem;
+}
+
 .checkins-list {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+.checkins-list-header {
+  margin-top: 60px;
+}
+
 .checkins-list .separator,
 .checkin-time {
   color: #8A8BD7;
-  font-size: 1.1rem;
 }
 
 .checkins-list .separator {
@@ -183,6 +191,7 @@ span.control,
   line-height: 32px;
 }
 
-.quote {
+.quote,
+.is-brand {
   font-weight: 700;
 }

@@ -29,6 +29,7 @@ class Swarm extends React.Component {
       cost,
       extraVisitCount,
       numVisits: 0,
+      username: LocalStorage.get('foursquare-user'),
       largeAvatar: LocalStorage.get('foursquare-large-avatar')
     }
   }
@@ -87,7 +88,7 @@ class Swarm extends React.Component {
   }
 
   checkinsList() {
-    const { checkins, extraVisitCount } = this.state
+    const { checkins, extraVisitCount, username } = this.state
     const numVisits = checkins.length + extraVisitCount
     if (numVisits < 1) {
       return (
@@ -130,6 +131,12 @@ class Swarm extends React.Component {
             className="space-before"
           >{times} this month.</span>
           <span className="quote">&rdquo;</span>
+        </p>
+        <p className="has-text-centered title is-4">
+          &mdash; {username}
+        </p>
+        <p className="has-text-centered checkins-list-header">
+          Checkins this month:
         </p>
         <CheckinsList checkins={checkins} />
       </div>
