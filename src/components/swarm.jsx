@@ -11,10 +11,23 @@ class Swarm extends React.Component {
     if (LocalStorage.has('gym-cost')) {
       cost = parseFloat(LocalStorage.get('gym-cost'))
     }
+    let extraVisitCount = 0
+    if (LocalStorage.has('gym-extra-visit-count')) {
+      const extraVisitMonth = LocalStorage.get('gym-extra-visit-month')
+      const curMonth = this.getCurrentMonth().getTime()
+      if (extraVisitMonth === curMonth) {
+        extraVisitCount = LocalStorage.get('gym-extra-visit-count')
+      } else {
+        LocalStorage.delete('gym-extra-visit-count')
+        LocalStorage.delete('gym-extra-visit-month')
+      }
+    }
     this.state = {
       token: LocalStorage.get('foursquare-token'),
       checkins: [],
-      cost
+      cost,
+      extraVisitCount,
+      numVisits: 0
     }
   }
 
@@ -29,10 +42,9 @@ class Swarm extends React.Component {
       catch(err => this.onCheckinsFetchError(err))
   }
 
-  onCheckinsFetched(checkins) {
-    const gyms = checkins.items.filter(this.isCheckinAtGym)
-    console.log(gyms)
-    this.setState({ checkins: gyms })
+  onCheckinsFetched(allCheckins) {
+    const checkins = allCheckins.items.filter(this.isCheckinAtGym)
+    this.setState({ checkins })
   }
 
   isCheckinAtGym(checkin) {
@@ -51,27 +63,64 @@ class Swarm extends React.Component {
     LocalStorage.delete('foursquare-token')
     LocalStorage.delete('foursquare-user')
     LocalStorage.delete('foursquare-user-id')
+    LocalStorage.delete('gym-visit-count')
     this.props.router.push('/')
   }
 
+  getCurrentMonth() {
+    const now = new Date()
+    return new Date(now.getFullYear(), now.getMonth(), 1)
+  }
+
+  onExtraVisitsChange(event) {
+    const countStr = event.target.value.trim()
+    const extraVisitCount = countStr.length > 0 ? parseInt(countStr, 10) : countStr
+    this.setState({ extraVisitCount }, () => {
+      if (countStr.length > 0) {
+        LocalStorage.set('gym-extra-visit-count', extraVisitCount)
+        const timestamp = this.getCurrentMonth().getTime()
+        LocalStorage.set('gym-extra-visit-month', timestamp)
+      }
+    })
+  }
+
   checkinsList() {
-    const { checkins } = this.state
-    if (checkins.length < 1) {
+    const { checkins, extraVisitCount } = this.state
+    const numVisits = checkins.length + extraVisitCount
+    if (numVisits < 1) {
       return <p>I have not been to the gym any this month. :(</p>
     }
 
     let times = 'time'
-    if (checkins.length > 1) {
+    if (numVisits.length !== 1) {
       times += 's'
     }
     return (
-      <div className="content">
-        <p>
+      <div>
+        <p className="input-line-height">
           I have been to the gym
           <strong
             className="space-after space-before"
           >{checkins.length}</strong>
-          {times} this month.
+          <span
+            className="space-after"
+          >+</span>
+          <input
+            type="text"
+            value={extraVisitCount}
+            onChange={e => this.onExtraVisitsChange(e)}
+            className="input extra-visit-field"
+            size="2"
+          />
+          <span
+            className="space-before"
+          >=</span>
+          <strong
+            className="space-before"
+          >{numVisits}</strong>
+          <span
+            className="space-before"
+          >{times} this month.</span>
         </p>
         <CheckinsList checkins={checkins} />
       </div>
@@ -83,22 +132,26 @@ class Swarm extends React.Component {
   }
 
   onCostChange(event) {
-    const cost = event.target.value
+    const costStr = event.target.value.trim()
+    const cost = costStr.length > 0 ? parseFloat(costStr) : costStr
     this.setState({ cost }, () => {
-      LocalStorage.set('gym-cost', cost)
+      if (costStr.length > 0) {
+        LocalStorage.set('gym-cost', cost)
+      }
     })
   }
 
   costPerVisit() {
-    const { cost, checkins } = this.state
-    if (typeof cost !== 'number' || checkins.length < 1) {
+    const { cost, checkins, extraVisitCount } = this.state
+    const numVisits = checkins.length + extraVisitCount
+    if (typeof cost !== 'number' || numVisits < 1) {
       return
     }
-    const perVisit = (cost / checkins.length).toFixed(2)
+    const perVisit = (cost / numVisits).toFixed(2)
     return (
       <p>
         If I don&lsquo;t go to the gym any more this month,
-        each visit will cost me
+        each visit has cost me
         <strong className="space-before">${perVisit}</strong>.
       </p>
     )
@@ -107,7 +160,7 @@ class Swarm extends React.Component {
   render() {
     const { cost } = this.state
     return (
-      <section className="section">
+      <section className="section content">
         <div className="container">
           <form onSubmit={e => this.onSubmit(e)}>
             <label

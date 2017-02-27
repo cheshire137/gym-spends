@@ -35,7 +35,7 @@ class CheckinsList extends React.Component {
   render() {
     const { checkins } = this.props
     return (
-      <ul className="checkins-list">
+      <ol className="checkins-list">
         {checkins.map(checkin => {
           return (
             <li key={checkin.id}>
@@ -48,7 +48,7 @@ class CheckinsList extends React.Component {
             </li>
           )
         })}
-      </ul>
+      </ol>
     )
   }
 }

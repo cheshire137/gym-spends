@@ -74,3 +74,13 @@ span.control,
 .checkin-time {
   color: #999;
 }
+
+.extra-visit-field {
+  display: inline-block;
+  width: auto;
+  font-weight: 700;
+}
+
+.input-line-height {
+  line-height: 32px;
+}
