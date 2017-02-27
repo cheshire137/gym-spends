@@ -68,16 +68,16 @@ export default class AuthLayout extends React.Component {
   render() {
     return (
       <div>
-        <div className="container">
-          <nav className="nav">
+        <nav className="nav">
+          <div className="container">
             <div className="nav-left">
               <a className="nav-item is-brand" href="/">Gym Spends</a>
             </div>
             <div className="nav-right nav-menu">
               {this.logoutLink()}
             </div>
-          </nav>
-        </div>
+          </div>
+        </nav>
         <div className="content-container">
           {this.props.children}
         </div>
