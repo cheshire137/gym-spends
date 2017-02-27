@@ -1,0 +1,7 @@
+notifications:
+  email: false
+language: node_js
+node_js:
+- '6'
+before_install:
+- export TZ=America/Chicago
