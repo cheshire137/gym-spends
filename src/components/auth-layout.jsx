@@ -25,7 +25,6 @@ export default class AuthLayout extends React.Component {
   fetchUser() {
     const fetcher = new Fetcher('')
     fetcher.get(`/me?token=${this.state.token}`).then(user => {
-      console.log(user)
       const avatarUrl = `${user.photo.prefix}100x100${user.photo.suffix}`
       LocalStorage.set('foursquare-user-id', user.id)
       const username = `${user.firstName} ${user.lastName}`
@@ -61,7 +60,7 @@ export default class AuthLayout extends React.Component {
       >
         {image}
         <span>Log out </span>
-        <span className="username">{this.state.username}</span>
+        <span className="username">{username}</span>
       </a>
     )
   }

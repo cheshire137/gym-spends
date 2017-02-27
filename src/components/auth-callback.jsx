@@ -6,7 +6,6 @@ import LocalStorage from '../models/local-storage'
 class AuthCallback extends React.Component {
   componentWillMount() {
     const hash = this.props.location.hash
-    console.log('hash', hash)
     const parts = hash.split('&')
     const prefix = 'access_token='
     const tokenPart = parts.filter(str => str.indexOf(prefix))[0]

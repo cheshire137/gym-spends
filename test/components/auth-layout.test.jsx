@@ -3,7 +3,6 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 import { shallow } from 'enzyme'
 
-import Config from '../../src/public/config'
 import AuthLayout from '../../src/components/auth-layout.jsx'
 
 import mockLocalStorage from '../mocks/local-storage'
@@ -11,7 +10,9 @@ import waitForRequests from '../helpers/wait-for-requests'
 
 import MeResponse from '../fixtures/foursquare/me'
 
-const initialLocalData = { 'foursquare-token': '123abc' }
+const user = MeResponse.response.user
+const token = '123abc'
+const initialLocalData = { 'foursquare-token': token }
 
 describe('AuthLayout', () => {
   let component = null
@@ -24,7 +25,7 @@ describe('AuthLayout', () => {
   }
 
   beforeEach(() => {
-    meRequest = fetchMock.get(`${Config.foursquare.apiUrl}/users/self`, MeResponse)
+    meRequest = fetchMock.get(`/me?token=${token}`, user)
 
     store = { 'gym-spends': JSON.stringify(initialLocalData) }
     mockLocalStorage(store)
@@ -44,8 +45,8 @@ describe('AuthLayout', () => {
       const wrapper = shallow(component)
 
       // Ensure Foursquare user is shown
-      const user = wrapper.find('.username')
-      expect(user.text()).toBe(`${MeResponse.firstName} ${MeResponse.lastName}`)
+      const username = wrapper.find('.username')
+      expect(username.text()).toBe(`${user.firstName} ${user.lastName}`)
 
       // Page title
       const title = wrapper.find('.is-brand')
@@ -53,8 +54,9 @@ describe('AuthLayout', () => {
 
       // Ensure data saved to local storage
       const expected = Object.assign({}, initialLocalData)
-      expected['foursquare-user-id'] = MeResponse.id
-      expected['foursquare-user'] = `${MeResponse.firstName} ${MeResponse.lastName}`
+      expected['foursquare-user-id'] = user.id
+      expected['foursquare-user'] = `${user.firstName} ${user.lastName}`
+      expected['foursquare-avatar'] = `${user.photo.prefix}100x100${user.photo.suffix}`
       expect(store['gym-spends']).toEqual(JSON.stringify(expected))
 
       // Ensure given child content is rendered
