@@ -28,7 +28,8 @@ class Swarm extends React.Component {
       checkins: [],
       cost,
       extraVisitCount,
-      numVisits: 0
+      numVisits: 0,
+      largeAvatar: LocalStorage.get('foursquare-large-avatar')
     }
   }
 
@@ -163,12 +164,12 @@ class Swarm extends React.Component {
   }
 
   render() {
-    const { cost } = this.state
+    const { cost, largeAvatar } = this.state
     return (
       <section className="section content">
         <div className="container">
           <div className="columns">
-            <div className="column is-half is-offset-3">
+            <div className="column is-8">
               <p
                 className="has-text-centered"
               >
@@ -199,6 +200,13 @@ class Swarm extends React.Component {
               </p>
               {this.costPerVisit()}
               {this.checkinsList()}
+            </div>
+            <div className="column">
+              <img
+                src={largeAvatar}
+                alt="Swarm avatar"
+                className="large-foursquare-avatar"
+              />
             </div>
           </div>
         </div>

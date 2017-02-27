@@ -112,6 +112,10 @@ body {
   height: 25px;
 }
 
+.large-foursquare-avatar {
+  border-radius: 10px;
+}
+
 .username {
   font-weight: 700;
 }
