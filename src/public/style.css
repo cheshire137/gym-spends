@@ -1,9 +1,14 @@
 body,
 .section,
 .nav,
-.footer {
+.footer,
+.hero {
   color: #fff;
   background-color: #393A8E;
+}
+
+.hero.is-primary {
+  background-color: #3E7593;
 }
 
 .nav {
@@ -67,7 +72,9 @@ a.nav-item:hover {
   color: #FCDEDD;
 }
 
-.label {
+.label,
+.subtitle,
+.title {
   color: #FF694F;
 }
 
@@ -87,14 +94,14 @@ body {
   flex: 1 0 auto;
 }
 
-.button.foursquare-button {
-  background-color: #3455de;
+.button.swarm-button {
+  background-color: #f39e2e;
   color: #fff;
 }
 
-.button.foursquare-button:hover,
-.button.foursquare-button:focus {
-  background-color: #526ee3;
+.button.swarm-button:hover,
+.button.swarm-button:focus {
+  background-color: #f4ab43;
   color: #fff;
 }
 

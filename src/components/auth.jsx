@@ -10,21 +10,26 @@ export default class Auth extends React.Component {
       `&redirect_uri=${encodeURIComponent(redirectUri)}` +
       `&client_id=${Config.foursquare.clientId}`
     return (
-      <section className="hero">
-        <div className="hero-body">
-          <div className="container">
-            <h2 className="subtitle">
-              Sign in with your Foursquare account to track how many times you go to the gym.
-            </h2>
-            <p>
-              <a
-                href={authUrl}
-                className="foursquare-button is-primary button is-large"
-              >Sign into Foursquare</a>
-            </p>
-          </div>
+      <div className="columns">
+        <div className="column is-half has-text-centered is-offset-3">
+          <section className="hero">
+            <div className="hero-body">
+              <div className="container">
+                <h2 className="title is-3">
+                  Sign in with your Swarm account to track how many
+                  times you go to the gym.
+                </h2>
+                <p>
+                  <a
+                    href={authUrl}
+                    className="swarm-button is-primary button is-large"
+                  >Sign into Swarm</a>
+                </p>
+              </div>
+            </div>
+          </section>
         </div>
-      </section>
+      </div>
     )
   }
 }
