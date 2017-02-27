@@ -44,9 +44,8 @@ describe('AuthLayout', () => {
     waitForRequests([meRequest], done, done.fail, () => {
       const wrapper = shallow(component)
 
-      // Ensure Foursquare user is shown
-      const username = wrapper.find('.username')
-      expect(username.text()).toBe(`${user.firstName} ${user.lastName}`)
+      // Ensure logout link is shown
+      expect(wrapper.find('.logout-link').length).toBe(1)
 
       // Page title
       const title = wrapper.find('.is-brand')
@@ -57,6 +56,7 @@ describe('AuthLayout', () => {
       expected['foursquare-user-id'] = user.id
       expected['foursquare-user'] = `${user.firstName} ${user.lastName}`
       expected['foursquare-avatar'] = `${user.photo.prefix}100x100${user.photo.suffix}`
+      expected['foursquare-large-avatar'] = `${user.photo.prefix}500x500${user.photo.suffix}`
       expect(store['gym-spends']).toEqual(JSON.stringify(expected))
 
       // Ensure given child content is rendered

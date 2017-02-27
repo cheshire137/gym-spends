@@ -18,7 +18,7 @@ describe('Auth', () => {
   })
 
   test('includes Foursquare client ID in link', () => {
-    const link = shallow(component).find('.foursquare-button')
+    const link = shallow(component).find('.swarm-button')
     const regex = new RegExp(Config.foursquare.clientId)
     expect(link.props().href).toMatch(regex)
   })
