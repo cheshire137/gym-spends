@@ -42,6 +42,9 @@ class CheckinsList extends React.Component {
               <span
                 className="checkin-name"
               >{checkin.venue.name}</span>
+              <span
+                className="separator space-before"
+              >&mdash;</span>
               <time
                 className="checkin-time space-before"
               >{this.getTimestamp(checkin.createdAt)}</time>

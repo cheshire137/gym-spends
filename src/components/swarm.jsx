@@ -163,31 +163,35 @@ class Swarm extends React.Component {
     return (
       <section className="section content">
         <div className="container">
-          <form onSubmit={e => this.onSubmit(e)}>
-            <label
-              className="label inline-block is-large space-after"
-              htmlFor="gym-cost"
-            >My gym costs</label>
-            <span className="control has-icon has-icon-left">
-              <span className="icon is-large">
-                <i className="fa fa-usd" />
-              </span>
-              <input
-                type="text"
-                id="gym-cost"
-                size="5"
-                className="input is-large"
-                placeholder="0"
-                value={cost}
-                onChange={e => this.onCostChange(e)}
-              />
-            </span>
-            <span
-              className="label inline-block is-large space-before"
-            >per month.</span>
-          </form>
-          {this.costPerVisit()}
-          {this.checkinsList()}
+          <div className="columns">
+            <div className="column is-half is-offset-3">
+              <form onSubmit={e => this.onSubmit(e)}>
+                <label
+                  className="label inline-block is-large space-after"
+                  htmlFor="gym-cost"
+                >My gym costs</label>
+                <span className="control has-icon has-icon-left">
+                  <span className="icon is-large">
+                    <i className="fa fa-usd" />
+                  </span>
+                  <input
+                    type="text"
+                    id="gym-cost"
+                    size="5"
+                    className="input is-large"
+                    placeholder="0"
+                    value={cost}
+                    onChange={e => this.onCostChange(e)}
+                  />
+                </span>
+                <span
+                  className="label inline-block is-large space-before"
+                >per month.</span>
+              </form>
+              {this.costPerVisit()}
+              {this.checkinsList()}
+            </div>
+          </div>
         </div>
       </section>
     )

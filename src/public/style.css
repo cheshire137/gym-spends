@@ -67,6 +67,11 @@ span.control,
   margin-right: 1em;
 }
 
+.checkins-list .separator {
+  display: inline-block;
+  color: #999;
+}
+
 .checkin-name {
   font-weight: 700;
 }
