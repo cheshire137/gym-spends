@@ -1,22 +1,28 @@
 exports[`Auth matches snapshot 1`] = `
-<section
-  className="hero">
+<div
+  className="columns">
   <div
-    className="hero-body">
-    <div
-      className="container">
-      <h2
-        className="subtitle">
-        Sign in with your Foursquare account to track how many times you go to the gym.
-      </h2>
-      <p>
-        <a
-          className="foursquare-button is-primary button is-large"
-          href="https://foursquare.com/oauth2/authenticate?response_type=token&redirect_uri=about%3A%2F%2F%2Fauth&client_id=CAXF44FNVXCBN4WG1MGDFJBR50OPND3FRVZPILNGRTOB3R4B">
-          Sign into Foursquare
-        </a>
-      </p>
-    </div>
+    className="column is-half has-text-centered is-offset-3">
+    <section
+      className="hero">
+      <div
+        className="hero-body">
+        <div
+          className="container">
+          <h2
+            className="title is-3">
+            Sign in with your Swarm account to track how many times you go to the gym.
+          </h2>
+          <p>
+            <a
+              className="swarm-button is-primary button is-large"
+              href="https://foursquare.com/oauth2/authenticate?response_type=token&redirect_uri=about%3A%2F%2F%2Fauth&client_id=CAXF44FNVXCBN4WG1MGDFJBR50OPND3FRVZPILNGRTOB3R4B">
+              Sign into Swarm
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
   </div>
-</section>
+</div>
 `;
