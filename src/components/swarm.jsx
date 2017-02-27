@@ -7,9 +7,14 @@ import Fetcher from '../models/fetcher'
 class Swarm extends React.Component {
   constructor(props) {
     super(props)
+    let cost = null
+    if (LocalStorage.has('gym-cost')) {
+      cost = parseFloat(LocalStorage.get('gym-cost'))
+    }
     this.state = {
       token: LocalStorage.get('foursquare-token'),
-      checkins: []
+      checkins: [],
+      cost
     }
   }
 
@@ -73,11 +78,38 @@ class Swarm extends React.Component {
     )
   }
 
+  onSubmit(event) {
+    event.preventDefault()
+  }
+
+  onCostChange(event) {
+    const cost = event.target.value
+    this.setState({ cost }, () => {
+      LocalStorage.set('gym-cost', cost)
+    })
+  }
+
+  costPerVisit() {
+    const { cost, checkins } = this.state
+    if (typeof cost !== 'number' || checkins.length < 1) {
+      return
+    }
+    const perVisit = (cost / checkins.length).toFixed(2)
+    return (
+      <p>
+        If I don&lsquo;t go to the gym any more this month,
+        each visit will cost me
+        <strong className="space-before">${perVisit}</strong>.
+      </p>
+    )
+  }
+
   render() {
+    const { cost } = this.state
     return (
       <section className="section">
         <div className="container">
-          <form>
+          <form onSubmit={e => this.onSubmit(e)}>
             <label
               className="label inline-block is-large space-after"
               htmlFor="gym-cost"
@@ -91,13 +123,16 @@ class Swarm extends React.Component {
                 id="gym-cost"
                 size="5"
                 className="input is-large"
-                placeholder="75"
+                placeholder="0"
+                value={cost}
+                onChange={e => this.onCostChange(e)}
               />
             </span>
             <span
               className="label inline-block is-large space-before"
             >per month.</span>
           </form>
+          {this.costPerVisit()}
           {this.checkinsList()}
         </div>
       </section>
