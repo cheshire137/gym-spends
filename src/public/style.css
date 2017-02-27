@@ -11,6 +11,10 @@ body,
   background-color: #FFD524;
 }
 
+.hero.is-primary a {
+  color: #3E3A3B;
+}
+
 .nav {
   border-bottom: 1px solid #DBB40D;
 }
@@ -41,6 +45,13 @@ body,
   background-color: #9CDAE5;
   font-size: 1rem;
   border-top: 1px solid #72B9C5;
+}
+
+.footer a,
+.footer a:link,
+.footer a:visited,
+.footer a:active {
+  color: #874A70;
 }
 
 .nav-item a,
@@ -138,6 +149,10 @@ span.control,
   vertical-align: top;
 }
 
+.is-large.button {
+  font-size: 1.8rem;
+}
+
 .control.has-icon .icon.is-large {
   height: 2rem;
   font-size: 32px;
@@ -194,4 +209,8 @@ span.control,
 .quote,
 .is-brand {
   font-weight: 700;
+}
+
+.title.is-3 {
+  line-height: 1.3;
 }

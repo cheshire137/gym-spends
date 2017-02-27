@@ -13,7 +13,14 @@ exports[`AuthLayout matches snapshot 1`] = `
         </a>
       </div>
       <div
-        className="nav-right nav-menu" />
+        className="nav-right nav-menu">
+        <a
+          className="nav-item logout-link"
+          href="#"
+          onClick={[Function]}>
+          Log out of Swarm
+        </a>
+      </div>
     </div>
   </nav>
   <div

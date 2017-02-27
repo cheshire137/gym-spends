@@ -16,8 +16,8 @@ export default class Auth extends React.Component {
             <div className="hero-body">
               <div className="container">
                 <h2 className="title is-3">
-                  Sign in with your Swarm account to track how many
-                  times you go to the gym.
+                  Sign in with your Swarm account to track how<br />
+                  much you&lsquo;re spending for each gym visit.
                 </h2>
                 <p>
                   <a

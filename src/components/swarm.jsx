@@ -35,7 +35,23 @@ class Swarm extends React.Component {
   }
 
   componentDidMount() {
+    if (!this.state.username) {
+      this.fetchUser()
+    }
     this.fetchCheckins()
+  }
+
+  fetchUser() {
+    const fetcher = new Fetcher('')
+    fetcher.get(`/me?token=${this.state.token}`).then(user => {
+      const username = `${user.firstName} ${user.lastName}`
+      const largeAvatar = `${user.photo.prefix}500x500${user.photo.suffix}`
+
+      LocalStorage.set('foursquare-user', username)
+      LocalStorage.set('foursquare-large-avatar', largeAvatar)
+
+      this.setState({ username, largeAvatar })
+    })
   }
 
   fetchCheckins() {
@@ -65,8 +81,8 @@ class Swarm extends React.Component {
   unauthorized() {
     LocalStorage.delete('foursquare-token')
     LocalStorage.delete('foursquare-user')
-    LocalStorage.delete('foursquare-user-id')
-    LocalStorage.delete('gym-visit-count')
+    LocalStorage.delete('foursquare-large-avatar')
+
     this.props.router.push('/')
   }
 

@@ -11,7 +11,9 @@ exports[`Auth matches snapshot 1`] = `
           className="container">
           <h2
             className="title is-3">
-            Sign in with your Swarm account to track how many times you go to the gym.
+            Sign in with your Swarm account to track how
+            <br />
+            much you‘re spending for each gym visit.
           </h2>
           <p>
             <a
